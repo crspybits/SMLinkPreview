@@ -1,0 +1,16 @@
+PODS:
+  - SMLinkPreview (0.1.0)
+
+DEPENDENCIES:
+  - SMLinkPreview (from `../`)
+
+EXTERNAL SOURCES:
+  SMLinkPreview:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SMLinkPreview: 6c80eef3c6fa084b89c6fc7f2fe9a90987086024
+
+PODFILE CHECKSUM: e193f9254b4587c0949f09d5eb057840a0a4a0ef
+
+COCOAPODS: 1.6.1

@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SMLinkPreview_Example' do
+  pod 'SMLinkPreview', :path => '../'
+
+  target 'SMLinkPreview_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

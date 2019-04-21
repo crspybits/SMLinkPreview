@@ -1,0 +1,6 @@
+framework module Pods_SMLinkPreview_Example {
+  umbrella header "Pods-SMLinkPreview_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
