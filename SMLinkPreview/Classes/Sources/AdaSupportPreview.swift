@@ -18,6 +18,7 @@ public class AdaSupportPreview: LinkSource {
     }
     
     public func getLinkData(url: URL, completion: @escaping (LinkData?) -> ()) {
+        // Get rid of the scheme (e.g., https:) on the URL
         guard let formattedURL = (url as NSURL).resourceSpecifier,
             formattedURL.count > 2 else {
             completion(nil)
@@ -72,7 +73,7 @@ public class AdaSupportPreview: LinkSource {
                 }
             }
             
-            // And some are just plain URL's referencing images...
+            // And some image URL's are just plain URL's referencing images...
             if imageURL == nil, let urlString = dict["image"] as? String {
                 imageURL = URL(string: urlString)
             }
