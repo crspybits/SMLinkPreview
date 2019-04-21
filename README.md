@@ -12,7 +12,7 @@ SMLinkPreview is available through [CocoaPods](https://cocoapods.org). To instal
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'SMLinkPreview', :git => 'https://github.com/SMLinkPreview.git'
+pod 'SMLinkPreview', :git => 'https://github.com/crspybits/SMLinkPreview.git'
 ```
 
 ## Author
