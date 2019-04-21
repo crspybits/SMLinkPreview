@@ -19,7 +19,7 @@
 		834A0CFB226C06F000B42573 /* MicrosoftURLPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834A0CFA226C06F000B42573 /* MicrosoftURLPreview.swift */; };
 		834A0CFF226C1F9000B42573 /* AdaSupportPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834A0CFE226C1F9000B42573 /* AdaSupportPreview.swift */; };
 		834A0D01226C29C900B42573 /* MicrolinkPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834A0D00226C29C900B42573 /* MicrolinkPreview.swift */; };
-		834A0D03226C32EB00B42573 /* SourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834A0D02226C32EB00B42573 /* SourceManager.swift */; };
+		834A0D05226CE95F00B42573 /* SourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834A0D04226CE95F00B42573 /* SourceManager.swift */; };
 		9AAEC62AA85EEBDCA98E2EB4DEBA6CC7 /* Pods-SMLinkPreview_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D9B861BE4E2629B6A215B22FE9D39EDE /* Pods-SMLinkPreview_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -62,7 +62,7 @@
 		834A0CFA226C06F000B42573 /* MicrosoftURLPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrosoftURLPreview.swift; sourceTree = "<group>"; };
 		834A0CFE226C1F9000B42573 /* AdaSupportPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaSupportPreview.swift; sourceTree = "<group>"; };
 		834A0D00226C29C900B42573 /* MicrolinkPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicrolinkPreview.swift; sourceTree = "<group>"; };
-		834A0D02226C32EB00B42573 /* SourceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceManager.swift; sourceTree = "<group>"; };
+		834A0D04226CE95F00B42573 /* SourceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SourceManager.swift; path = SMLinkPreview/Classes/SourceManager.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9EA3C7A8B368EA69B1FD25297C90A9D8 /* Pods-SMLinkPreview_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SMLinkPreview_Example.release.xcconfig"; sourceTree = "<group>"; };
 		C02E17E5970840C30B90D7ABB7994364 /* SMLinkPreview-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SMLinkPreview-Info.plist"; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				834A0CF6226C023000B42573 /* LinkSource.swift */,
-				834A0D02226C32EB00B42573 /* SourceManager.swift */,
+				834A0D04226CE95F00B42573 /* SourceManager.swift */,
 				834A0CF9226C046C00B42573 /* Sources */,
 				67C3B059E23375309FF71F05BE9353A3 /* Pod */,
 				B993BB63A1EB3D60CF610A6E2A9109F6 /* Support Files */,
@@ -403,7 +403,7 @@
 				834A0CF7226C023000B42573 /* LinkSource.swift in Sources */,
 				834A0D01226C29C900B42573 /* MicrolinkPreview.swift in Sources */,
 				64071088D38A5B588549CCDFC228087A /* SMLinkPreview-dummy.m in Sources */,
-				834A0D03226C32EB00B42573 /* SourceManager.swift in Sources */,
+				834A0D05226CE95F00B42573 /* SourceManager.swift in Sources */,
 				834A0CFF226C1F9000B42573 /* AdaSupportPreview.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
