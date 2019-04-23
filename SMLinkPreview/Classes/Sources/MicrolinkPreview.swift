@@ -60,7 +60,7 @@ public class MicrolinkPreview: LinkSource {
                 imageURL = URL(string: image)
             }
             
-            let linkData = LinkData(title: name, description: description, image: imageURL, icon: iconURL)
+            let linkData = LinkData(url: url, title: name, description: description, image: imageURL, icon: iconURL)
             completion(linkData)
         }
         

@@ -23,12 +23,14 @@ public struct LinkData {
         }
     }
     
+    public let url: URL
     public let title: String?
     public let description: String?
     public let image: URL?
     public let icon: URL?
     
-    public init(title: String?, description: String?, image: URL?, icon: URL?) {
+    public init(url: URL, title: String?, description: String?, image: URL?, icon: URL?) {
+        self.url = url
         self.image = image
         self.icon = icon
         self.description = description

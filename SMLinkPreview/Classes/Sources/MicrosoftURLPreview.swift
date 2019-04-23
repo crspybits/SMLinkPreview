@@ -61,7 +61,7 @@ public class MicrosoftURLPreview: LinkSource {
                 imageURL = URL(string: image)
             }
             
-            let linkData = LinkData(title: name, description: description, image: imageURL, icon: nil)
+            let linkData = LinkData(url: url, title: name, description: description, image: imageURL, icon: nil)
             completion(linkData)
         }
         

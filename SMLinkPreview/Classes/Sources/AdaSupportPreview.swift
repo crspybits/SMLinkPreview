@@ -82,7 +82,7 @@ public class AdaSupportPreview: LinkSource {
                 iconURL = URL(string: icon)
             }
             
-            let linkData = LinkData(title: name, description: description, image: imageURL, icon: iconURL)
+            let linkData = LinkData(url: url, title: name, description: description, image: imageURL, icon: iconURL)
             completion(linkData)
         }
         
