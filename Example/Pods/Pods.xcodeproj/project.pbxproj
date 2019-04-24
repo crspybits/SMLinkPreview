@@ -22,7 +22,7 @@
 		834A0D05226CE95F00B42573 /* PreviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834A0D04226CE95F00B42573 /* PreviewManager.swift */; };
 		834A0D07226EACC200B42573 /* LinkPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834A0D06226EACC200B42573 /* LinkPreview.swift */; };
 		834A0D09226EAD1600B42573 /* LinkPreview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 834A0D08226EAD1600B42573 /* LinkPreview.xib */; };
-		834A0D0B226F400A00B42573 /* URL+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834A0D0A226F400A00B42573 /* URL+Extras.swift */; };
+		834A0D0D2270111200B42573 /* URL+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834A0D0C2270111200B42573 /* URL+Extras.swift */; };
 		9AAEC62AA85EEBDCA98E2EB4DEBA6CC7 /* Pods-SMLinkPreview_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D9B861BE4E2629B6A215B22FE9D39EDE /* Pods-SMLinkPreview_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -68,7 +68,7 @@
 		834A0D04226CE95F00B42573 /* PreviewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreviewManager.swift; path = SMLinkPreview/Classes/PreviewManager.swift; sourceTree = "<group>"; };
 		834A0D06226EACC200B42573 /* LinkPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LinkPreview.swift; path = SMLinkPreview/Classes/LinkPreview.swift; sourceTree = "<group>"; };
 		834A0D08226EAD1600B42573 /* LinkPreview.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LinkPreview.xib; path = SMLinkPreview/Classes/LinkPreview.xib; sourceTree = "<group>"; };
-		834A0D0A226F400A00B42573 /* URL+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extras.swift"; sourceTree = "<group>"; };
+		834A0D0C2270111200B42573 /* URL+Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "URL+Extras.swift"; path = "SMLinkPreview/Classes/URL+Extras.swift"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9EA3C7A8B368EA69B1FD25297C90A9D8 /* Pods-SMLinkPreview_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SMLinkPreview_Example.release.xcconfig"; sourceTree = "<group>"; };
 		C02E17E5970840C30B90D7ABB7994364 /* SMLinkPreview-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SMLinkPreview-Info.plist"; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 				834A0D04226CE95F00B42573 /* PreviewManager.swift */,
 				834A0D06226EACC200B42573 /* LinkPreview.swift */,
 				834A0D08226EAD1600B42573 /* LinkPreview.xib */,
-				834A0D0A226F400A00B42573 /* URL+Extras.swift */,
+				834A0D0C2270111200B42573 /* URL+Extras.swift */,
 				834A0CF9226C046C00B42573 /* Sources */,
 				67C3B059E23375309FF71F05BE9353A3 /* Pod */,
 				B993BB63A1EB3D60CF610A6E2A9109F6 /* Support Files */,
@@ -409,7 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				834A0D0B226F400A00B42573 /* URL+Extras.swift in Sources */,
+				834A0D0D2270111200B42573 /* URL+Extras.swift in Sources */,
 				834A0CFB226C06F000B42573 /* MicrosoftURLPreview.swift in Sources */,
 				834A0CF7226C023000B42573 /* LinkSource.swift in Sources */,
 				834A0D07226EACC200B42573 /* LinkPreview.swift in Sources */,
