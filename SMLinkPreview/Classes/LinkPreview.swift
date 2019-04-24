@@ -24,12 +24,17 @@ public class LinkPreview: UIView {
     }
     
     func setup(with linkData: LinkData) {
+        title.numberOfLines = Int(PreviewManager.session.config.maxNumberTitleLines)
         title.text = linkData.title
-        url.text = linkData.url.absoluteString
+        url.text = linkData.url.urlWithoutScheme()
         
-        // TODO: Need a configuration option as to whether to use https for all image loading.
+        var forceScheme:URL.ForceScheme?
+        if PreviewManager.session.config.alwaysUseHTTPS {
+            forceScheme = .https
+        }
         
-        if let imageURL = linkData.image, let data = try? Data(contentsOf: imageURL) {
+        if let imageURL = linkData.image,
+            let data = try? Data(contentsOf: imageURL.attemptForceScheme(forceScheme)) {
             image.image = UIImage(data: data)
             applyCornerRounding(view: contentView)
             iconContainerWidth.constant = 0
@@ -40,7 +45,7 @@ public class LinkPreview: UIView {
             applyCornerRounding(view: textAndIconContainer)
             
             if let iconURL = linkData.icon {
-                if let data = try? Data(contentsOf: iconURL) {
+                if let data = try? Data(contentsOf: iconURL.attemptForceScheme(forceScheme)) {
                     icon.image = UIImage(data: data)
                 }
             }

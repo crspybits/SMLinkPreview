@@ -7,22 +7,7 @@
 
 import Foundation
 
-public struct LinkData {
-    public struct Fields: OptionSet {
-        public let rawValue: UInt
-
-        public static let title = Fields(rawValue: 1 << 0)
-        public static let description = Fields(rawValue: 1 << 1)
-        public static let image = Fields(rawValue: 1 << 2)
-        public static let icon = Fields(rawValue: 1 << 3)
-        
-        public static let all:[Fields] = [.title, .description, .image, .icon]
-
-        public init(rawValue: UInt) {
-            self.rawValue = rawValue
-        }
-    }
-    
+public struct LinkData {    
     public let url: URL
     public let title: String?
     public let description: String?

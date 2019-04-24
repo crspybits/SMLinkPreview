@@ -102,7 +102,7 @@ class Tests: XCTestCase {
     }
     
     func setupSourceManager() -> Bool {
-        SourceManager.session.reset()
+        PreviewManager.session.reset()
 
         guard let requestKeyName = MicrosoftURLPreview.requestKeyName,
             let microsoftKey = APIKey.getFromPlist(plistKeyName: "MicrosoftURLPreview", requestKeyName: requestKeyName, plistName: "APIKeys") else {
@@ -126,9 +126,9 @@ class Tests: XCTestCase {
             return false
         }
 
-        SourceManager.session.add(source: msPreview)
-        SourceManager.session.add(source: adaPreview)
-        SourceManager.session.add(source: mPreview)
+        PreviewManager.session.add(source: msPreview)
+        PreviewManager.session.add(source: adaPreview)
+        PreviewManager.session.add(source: mPreview)
         
         return true
     }
@@ -139,7 +139,7 @@ class Tests: XCTestCase {
             return
         }
         
-        SourceManager.session.requiredFields = []
+        PreviewManager.session.linkDataFilter = nil
         
         guard let url = URL(string: "https://www.github.com") else {
             XCTFail()
@@ -147,7 +147,7 @@ class Tests: XCTestCase {
         }
         
         let exp = expectation(description: "getLinkData")
-        SourceManager.session.getLinkData(url: url) { linkData in
+        PreviewManager.session.getLinkData(url: url) { linkData in
             XCTAssert(linkData != nil)
             print("linkData: \(String(describing: linkData))")
             exp.fulfill()
@@ -161,7 +161,7 @@ class Tests: XCTestCase {
             return
         }
     
-        SourceManager.session.requiredFields = []
+        PreviewManager.session.linkDataFilter = nil
     
         guard let url = URL(string: "https://www.cprince.com") else {
             XCTFail()
@@ -169,7 +169,7 @@ class Tests: XCTestCase {
         }
     
         let exp = expectation(description: "getLinkData")
-        SourceManager.session.getLinkData(url: url) { linkData in
+        PreviewManager.session.getLinkData(url: url) { linkData in
             XCTAssert(linkData != nil)
             print("linkData: \(String(describing: linkData))")
             exp.fulfill()
@@ -183,7 +183,9 @@ class Tests: XCTestCase {
             return
         }
         
-        SourceManager.session.requiredFields = [.title, .image]
+        PreviewManager.session.linkDataFilter = { linkData in
+            linkData.title != nil && linkData.image != nil
+        }
         
         guard let url = URL(string: "https://www.github.com") else {
             XCTFail()
@@ -191,7 +193,7 @@ class Tests: XCTestCase {
         }
         
         let exp = expectation(description: "getLinkData")
-        SourceManager.session.getLinkData(url: url) { linkData in
+        PreviewManager.session.getLinkData(url: url) { linkData in
             XCTAssert(linkData != nil)
             print("linkData: \(String(describing: linkData))")
             exp.fulfill()

@@ -18,15 +18,10 @@ public class AdaSupportPreview: LinkSource {
     }
     
     public func getLinkData(url: URL, completion: @escaping (LinkData?) -> ()) {
-        // Get rid of the scheme (e.g., https:) on the URL
-        guard let formattedURL = (url as NSURL).resourceSpecifier,
-            formattedURL.count > 2 else {
+        guard let urlWithoutScheme = url.urlWithoutScheme() else {
             completion(nil)
             return
         }
-        
-        // Remove the two slashes left after the resourceSpecifier call.
-        let urlWithoutScheme = formattedURL.dropFirst().dropFirst()
         
         let routeString = route + urlWithoutScheme        
         guard let routeURL = URL(string: routeString) else {
