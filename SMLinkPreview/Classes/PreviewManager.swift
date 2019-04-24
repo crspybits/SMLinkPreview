@@ -41,13 +41,24 @@ public class PreviewManager {
         getLinkDataAux(sources: sources, url: url, completion: completion)
     }
     
+    func onMainThread(completion: @escaping ()->()) {
+        if Thread.isMainThread {
+            completion()
+        }
+        else {
+            DispatchQueue.main.sync {
+                completion()
+            }
+        }
+    }
+    
     func getLinkDataAux(sources: [LinkSource], url: URL, completion: @escaping (LinkData?)->()) {
         if sources.count == 0 {
-            completion(nil)
+            onMainThread {completion(nil)}
         }
         else {
             let source = sources[0]
-            let tail = Array(sources[1...sources.count-1])
+            let tail = sources.count > 1 ? Array(sources[1...sources.count-1]) : [LinkSource]()
             source.getLinkData(url: url) {[unowned self] linkData in
                 guard let linkData = linkData else {
                     // With a failure, try next as failover method(s).
@@ -57,12 +68,12 @@ public class PreviewManager {
                 
                 guard let filter = self.linkDataFilter else {
                     // This is not a failure: There's just no filter. Return what we found!
-                    completion(linkData)
+                    self.onMainThread {completion(linkData)}
                     return
                 }
                 
                 if filter(linkData) {
-                    completion(linkData)
+                    self.onMainThread {completion(linkData)}
                 }
                 else {
                     // linkData didn't meet the filter constraint-- try next.
