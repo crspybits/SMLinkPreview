@@ -23,6 +23,21 @@ public class LinkPreview: UIView {
         return preview
     }
     
+    // To resize this view, set this:
+    public var size: CGSize {
+        set {
+            if imageHeight.constant > 0 {
+                // Going to keep the textAndIconContainer height constant when there is an image.
+                imageHeight.constant = newValue.height - textAndIconContainer.frame.height
+            }
+            
+            frame.size = newValue
+        }
+        get {
+            return frame.size
+        }
+    }
+    
     func setup(with linkData: LinkData) {
         title.numberOfLines = Int(PreviewManager.session.config.maxNumberTitleLines)
         title.text = linkData.title
