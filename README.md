@@ -10,10 +10,19 @@
 ### The LinkPreview view adapts to different available data:
 
 ![LargeImage OneLineTitle](Docs/Images/LargeImage-OneLineTitle.png "LargeImage OneLineTitle") 
-![LargeImage TwoLineTitle](LargeImage-TwoLineTitle.png "LargeImage TwoLineTitle")
-![Only URL](OnlyURL.png "Only URL")
-![Icon and URL](Icon.png "Icon and URL")
-![Icon TwoLineTitle](Icon-TwoLineTitle.png "Icon TwoLineTitle")
+![LargeImage TwoLineTitle](Docs/Images/LargeImage-TwoLineTitle.png "LargeImage TwoLineTitle")
+![Only URL](Docs/Images/OnlyURL.png "Only URL")
+![Icon and URL](Docs/Images/Icon.png "Icon and URL")
+![Icon TwoLineTitle](Docs/Images/Icon-TwoLineTitle.png "Icon TwoLineTitle")
+
+<p float="left">
+    <img src="Docs/Images/LargeImage-OneLineTitle.png" width="100" />
+    <img src="Docs/Images/LargeImage-TwoLineTitle.png" width="100" /> 
+    <img src="Docs/Images/OnlyURL.png" width="100" />
+    <img src="Docs/Images/Icon.png" width="100" />
+    <img src="Docs/Images/Icon-TwoLineTitle.png" width="100" />
+</p>
+
 
 ## Example
 
