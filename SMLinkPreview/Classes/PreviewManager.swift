@@ -8,7 +8,7 @@
 import Foundation
 
 public struct PreviewConfiguration {
-    public let alwaysUseHTTPS: Bool // Use https for all image loading? Default is true because otherwise app needs ATS set to allow insecure loading.
+    public let alwaysUseHTTPS: Bool // Use https for all remote image loading? Default is true because otherwise app needs ATS set to allow insecure loading. This is not relevant for local image loading.
     public let maxNumberTitleLines: UInt // 0 means unlimited
     
     public init(alwaysUseHTTPS: Bool = true, maxNumberTitleLines: UInt = 0) {

@@ -17,9 +17,20 @@ public class LinkPreview: UIView {
     @IBOutlet weak var iconContainerWidth: NSLayoutConstraint!
     @IBOutlet weak var textAndIconContainer: UIView!
     
-    public static func create(with linkData: LinkData) -> LinkPreview {
+    public enum LoadedImage {
+        case large(UIImage)
+        case icon(UIImage)
+    }
+    
+    public static func create(with linkData: LinkData, callback:((_ image: LoadedImage?)->())? = nil) -> LinkPreview {
+        let preview = create()
+        preview.setup(with: linkData, callback: callback)
+        return preview
+    }
+    
+    /// Call setup after calling tthis.
+    public static func create() -> LinkPreview {
         let preview = Bundle(for: LinkPreview.self).loadNibNamed("LinkPreview", owner: self)![0] as! LinkPreview
-        preview.setup(with: linkData)
         return preview
     }
     
@@ -38,7 +49,9 @@ public class LinkPreview: UIView {
         }
     }
     
-    func setup(with linkData: LinkData) {
+    /// The image is passed back in the form of a callback to allow for asynchronous image loading if needed.
+    // Image data are loaded from the linkData icon/image URL's, if non-nil. Those URL's can refer to either local or remote files.
+    public func setup(with linkData: LinkData, callback:((_ image: LoadedImage?)->())? = nil) {
         title.numberOfLines = Int(PreviewManager.session.config.maxNumberTitleLines)
         title.text = linkData.title
         url.text = linkData.url.urlWithoutScheme()
@@ -48,9 +61,14 @@ public class LinkPreview: UIView {
             forceScheme = .https
         }
         
+        var result:LoadedImage?
+        
         if let imageURL = linkData.image,
             let data = try? Data(contentsOf: imageURL.attemptForceScheme(forceScheme)) {
             image.image = UIImage(data: data)
+            if let image = image.image {
+                result = .large(image)
+            }
             applyCornerRounding(view: contentView)
             iconContainerWidth.constant = 0
             layoutIfNeeded()
@@ -62,6 +80,9 @@ public class LinkPreview: UIView {
             if let iconURL = linkData.icon {
                 if let data = try? Data(contentsOf: iconURL.attemptForceScheme(forceScheme)) {
                     icon.image = UIImage(data: data)
+                    if let icon = icon.image {
+                        result = .icon(icon)
+                    }
                 }
             }
             else {
@@ -71,7 +92,9 @@ public class LinkPreview: UIView {
             imageHeight.constant = 0
             layoutIfNeeded()
             self.frame.size.height = textAndIconContainer.frame.height
-        }        
+        }
+        
+        callback?(result)
     }
     
     func applyCornerRounding(view: UIView) {

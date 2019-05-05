@@ -25,12 +25,17 @@ extension URL {
         
     }
     
+    // Returns the URL unchanged at least in the case if the scheme is "file" for a reference to a local file.
     func attemptForceScheme(_ forceScheme:ForceScheme?) -> URL {
         guard let forceScheme = forceScheme else {
             return self
         }
         
         guard var components = URLComponents(url: self, resolvingAgainstBaseURL: true) else {
+            return self
+        }
+        
+        if components.scheme == "file" {
             return self
         }
         
