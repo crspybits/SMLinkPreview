@@ -16,11 +16,11 @@
 ![Icon TwoLineTitle](Docs/Images/Icon-TwoLineTitle.png "Icon TwoLineTitle")
 
 <p float="left">
-    <img src="Docs/Images/LargeImage-OneLineTitle.png" width="100" />
-    <img src="Docs/Images/LargeImage-TwoLineTitle.png" width="100" /> 
-    <img src="Docs/Images/OnlyURL.png" width="100" />
-    <img src="Docs/Images/Icon.png" width="100" />
-    <img src="Docs/Images/Icon-TwoLineTitle.png" width="100" />
+    <img src="Docs/Images/LargeImage-OneLineTitle.png" width="200" alt="LargeImage OneLineTitle" />
+    <img src="Docs/Images/LargeImage-TwoLineTitle.png" width="200" /> 
+    <img src="Docs/Images/OnlyURL.png" width="200" />
+    <img src="Docs/Images/Icon.png" width="200" />
+    <img src="Docs/Images/Icon-TwoLineTitle.png" width="200" />
 </p>
 
 
