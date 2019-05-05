@@ -9,18 +9,12 @@
 
 ### The LinkPreview view adapts to different available data:
 
-![LargeImage OneLineTitle](Docs/Images/LargeImage-OneLineTitle.png "LargeImage OneLineTitle") 
-![LargeImage TwoLineTitle](Docs/Images/LargeImage-TwoLineTitle.png "LargeImage TwoLineTitle")
-![Only URL](Docs/Images/OnlyURL.png "Only URL")
-![Icon and URL](Docs/Images/Icon.png "Icon and URL")
-![Icon TwoLineTitle](Docs/Images/Icon-TwoLineTitle.png "Icon TwoLineTitle")
-
 <p float="left">
-    <img src="Docs/Images/LargeImage-OneLineTitle.png" width="200" title="LargeImage OneLineTitle" />
-    <img src="Docs/Images/LargeImage-TwoLineTitle.png" width="200" /> 
-    <img src="Docs/Images/OnlyURL.png" width="200" />
-    <img src="Docs/Images/Icon.png" width="200" />
-    <img src="Docs/Images/Icon-TwoLineTitle.png" width="200" />
+    <img src="Docs/Images/LargeImage-OneLineTitle.png" width="200" title="Large Image One Line Title" />
+    <img src="Docs/Images/LargeImage-TwoLineTitle.png" width="200" title="Large Image Two Line Title" /> 
+    <img src="Docs/Images/OnlyURL.png" width="200" title="Only URL" />
+    <img src="Docs/Images/Icon.png" width="200" title="Icon and URL" />
+    <img src="Docs/Images/Icon-TwoLineTitle.png" width="200"title="Icon Two Line Title" />
 </p>
 
 
