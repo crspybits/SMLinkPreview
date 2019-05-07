@@ -10,43 +10,49 @@ import UIKit
 public class LinkPreview: UIView {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var imageHeight: NSLayoutConstraint!
-    @IBOutlet weak var image: UIImageView!
+    @IBOutlet public weak var image: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var url: UILabel!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var iconContainerWidth: NSLayoutConstraint!
     @IBOutlet weak var textAndIconContainer: UIView!
+    private var haveImage: Bool = false
+    private var doneSetup = false
     
     public enum LoadedImage {
         case large(UIImage)
         case icon(UIImage)
     }
     
+    override public func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    // I was having problems getting the LinkPreview to load as an IBOutlet-- but this works: https://stackoverflow.com/questions/6906631/iboutlet-isnt-connected-in-awakefromnib
+    override public func awakeAfter(using aDecoder: NSCoder) -> Any? {
+        guard subviews.isEmpty else { return self }
+        return LinkPreview.loadFromNib(anyClass: type(of: self), owner: nil)
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    private static func loadFromNib(anyClass: AnyClass, owner: Any?) -> Any? {
+        let bundle = Bundle(for: anyClass)
+        let nibName = String(describing: anyClass)
+        return bundle.loadNibNamed(nibName, owner: owner, options: nil)?.first
+    }
+    
     public static func create(with linkData: LinkData, callback:((_ image: LoadedImage?)->())? = nil) -> LinkPreview {
-        let preview = create()
+        let preview = LinkPreview.loadFromNib(anyClass: self, owner: self) as! LinkPreview
         preview.setup(with: linkData, callback: callback)
         return preview
     }
-    
-    /// Call setup after calling tthis.
+
+    /// Call setup after calling this.
     public static func create() -> LinkPreview {
-        let preview = Bundle(for: LinkPreview.self).loadNibNamed("LinkPreview", owner: self)![0] as! LinkPreview
-        return preview
-    }
-    
-    // To resize this view, set this:
-    public var size: CGSize {
-        set {
-            if imageHeight.constant > 0 {
-                // Going to keep the textAndIconContainer height constant when there is an image.
-                imageHeight.constant = newValue.height - textAndIconContainer.frame.height
-            }
-            
-            frame.size = newValue
-        }
-        get {
-            return frame.size
-        }
+        return LinkPreview.loadFromNib(anyClass: self, owner: self) as! LinkPreview
     }
     
     /// The image is passed back in the form of a callback to allow for asynchronous image loading if needed.
@@ -55,7 +61,7 @@ public class LinkPreview: UIView {
         title.numberOfLines = Int(PreviewManager.session.config.maxNumberTitleLines)
         title.text = linkData.title
         url.text = linkData.url.urlWithoutScheme()
-        
+
         var forceScheme:URL.ForceScheme?
         if PreviewManager.session.config.alwaysUseHTTPS {
             forceScheme = .https
@@ -65,6 +71,7 @@ public class LinkPreview: UIView {
         
         if let imageURL = linkData.image,
             let data = try? Data(contentsOf: imageURL.attemptForceScheme(forceScheme)) {
+            haveImage = true
             image.image = UIImage(data: data)
             if let image = image.image {
                 result = .large(image)
@@ -72,9 +79,12 @@ public class LinkPreview: UIView {
             applyCornerRounding(view: contentView)
             iconContainerWidth.constant = 0
             layoutIfNeeded()
-            self.frame.size.height = textAndIconContainer.frame.height + image.frame.height
+            frame.size.height = textAndIconContainer.frame.height + image.frame.height
         }
         else {
+            haveImage = false
+
+            // No image; just have text area (title, URL) below.
             applyCornerRounding(view: textAndIconContainer)
             
             if let iconURL = linkData.icon {
@@ -91,10 +101,19 @@ public class LinkPreview: UIView {
             
             imageHeight.constant = 0
             layoutIfNeeded()
-            self.frame.size.height = textAndIconContainer.frame.height
+            frame.size.height = textAndIconContainer.frame.height
         }
         
         callback?(result)
+    }
+
+    override public func layoutSubviews() {
+        super.layoutSubviews()
+        
+        if haveImage {
+            imageHeight.constant =
+                max(frame.size.height - textAndIconContainer.frame.height, 0)
+        }
     }
     
     func applyCornerRounding(view: UIView) {
