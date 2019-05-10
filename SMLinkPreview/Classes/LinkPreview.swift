@@ -16,6 +16,7 @@ public class LinkPreview: UIView {
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var iconContainerWidth: NSLayoutConstraint!
     @IBOutlet weak var textAndIconContainer: UIView!
+    public var textAndIconAction:(()->())?
     private var haveImage: Bool = false
     private var doneSetup = false
     
@@ -121,5 +122,9 @@ public class LinkPreview: UIView {
         view.clipsToBounds = true
         view.layer.borderColor = UIColor.lightGray.cgColor
         view.layer.borderWidth = 1
+    }
+    
+    @IBAction func textAndIconAction(_ sender: Any) {
+        textAndIconAction?()
     }
 }

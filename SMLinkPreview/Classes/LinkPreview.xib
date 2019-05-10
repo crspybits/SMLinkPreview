@@ -71,15 +71,25 @@
                                         <constraint firstAttribute="width" constant="60" id="k0g-V8-yhn"/>
                                     </constraints>
                                 </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uml-W6-cms">
+                                    <rect key="frame" x="0.0" y="0.0" width="262" height="62"/>
+                                    <connections>
+                                        <action selector="textAndIconAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="ruA-WS-9XM"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
+                                <constraint firstAttribute="trailing" secondItem="uml-W6-cms" secondAttribute="trailing" id="5Mx-En-NT7"/>
                                 <constraint firstItem="Nc9-So-Ltt" firstAttribute="leading" secondItem="UMI-SY-kOA" secondAttribute="trailing" id="HB2-26-cFC"/>
                                 <constraint firstItem="UMI-SY-kOA" firstAttribute="top" secondItem="sJ4-2z-y8P" secondAttribute="top" id="KU5-yf-6aw"/>
                                 <constraint firstItem="Nc9-So-Ltt" firstAttribute="top" secondItem="sJ4-2z-y8P" secondAttribute="top" id="Rg8-9e-B0X"/>
+                                <constraint firstItem="uml-W6-cms" firstAttribute="leading" secondItem="sJ4-2z-y8P" secondAttribute="leading" id="evX-di-zh7"/>
                                 <constraint firstAttribute="bottom" secondItem="UMI-SY-kOA" secondAttribute="bottom" id="oD7-Kz-GaS"/>
                                 <constraint firstItem="UMI-SY-kOA" firstAttribute="leading" secondItem="sJ4-2z-y8P" secondAttribute="leading" id="pRC-Cv-MjJ"/>
                                 <constraint firstAttribute="trailing" secondItem="Nc9-So-Ltt" secondAttribute="trailing" id="poO-a9-E58"/>
+                                <constraint firstAttribute="bottom" secondItem="uml-W6-cms" secondAttribute="bottom" id="t5G-kR-dMe"/>
+                                <constraint firstItem="uml-W6-cms" firstAttribute="top" secondItem="sJ4-2z-y8P" secondAttribute="top" id="twy-O8-LMx"/>
                                 <constraint firstAttribute="bottom" secondItem="Nc9-So-Ltt" secondAttribute="bottom" id="vbB-11-3IM"/>
                             </constraints>
                         </view>
