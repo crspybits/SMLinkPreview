@@ -10,7 +10,7 @@ to see who you are.
 # 1) Update the .podspec with the new version number
 
 # 2) validate the pod, without downloading
-pod lib lint --allow-warnings
+pod lib lint
 
 # 3) then push updated revision of pod to its repo
 
