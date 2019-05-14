@@ -1,0 +1,26 @@
+# May have to go back and register as trunk owner (in case I push a roster pod)
+https://guides.cocoapods.org/making/getting-setup-with-trunk.html
+
+pod trunk register chris@spasticmuffin.biz 'Christopher Prince' --description='macbook air'
+
+Before trying this, you can try:
+	pod trunk me
+to see who you are.
+
+# 1) Update the .podspec with the new version number
+
+# 2) validate the pod, without downloading
+pod lib lint --allow-warnings
+
+# 3) then push updated revision of pod to its repo
+
+git add -A && git commit -m "Version 0.1.0 -- see VERSIONS.txt"
+git tag 0.1.0
+git push --tags
+
+# 4) validate the pod, with downloading
+pod spec lint --allow-warnings
+
+# 5) Then, to push my podspec
+
+pod trunk push SMLinkPreview.podspec --allow-warnings
