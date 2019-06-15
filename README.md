@@ -1,8 +1,12 @@
 # SMLinkPreview
 
+[![Version](https://img.shields.io/cocoapods/v/SMLinkPreview.svg?style=flat)](http://cocoapods.org/pods/SMLinkPreview)
+[![License](https://img.shields.io/cocoapods/l/SMLinkPreview.svg?style=flat)](http://cocoapods.org/pods/SMLinkPreview)
+[![Platform](https://img.shields.io/cocoapods/p/SMLinkPreview.svg?style=flat)](http://cocoapods.org/pods/SMLinkPreview)
+
 ## Features
 
-### The goal of this library is:
+### The goals of this library are:
 1. To (a) separate the fetching or acquisition of link preview data from (b) the view or UI aspects of the link preview.
 2. To enable the app using the link preview data fetching to not have to disable Application Transport Security (ATS).
 3. To flexibly allow for different web-based API services that fetch link preview data.
@@ -28,6 +32,12 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 SMLinkPreview is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
+
+
+```ruby
+pod 'SMLinkPreview'
+```
+or
 
 ```ruby
 pod 'SMLinkPreview', :git => 'https://github.com/crspybits/SMLinkPreview.git'

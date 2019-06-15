@@ -19,8 +19,8 @@ git tag 0.1.0
 git push --tags
 
 # 4) validate the pod, with downloading
-pod spec lint --allow-warnings
+pod spec lint
 
 # 5) Then, to push my podspec
 
-pod trunk push SMLinkPreview.podspec --allow-warnings
+pod trunk push SMLinkPreview.podspec
