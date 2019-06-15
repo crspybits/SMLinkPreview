@@ -10,11 +10,11 @@
 ### The LinkPreview view adapts to different available data:
 
 <p float="left">
-    <img src="Docs/Images/LargeImage-OneLineTitle.png" width="200" title="Large Image One Line Title" />
-    <img src="Docs/Images/LargeImage-TwoLineTitle.png" width="200" title="Large Image Two Line Title" /> 
+    <img src="https://github.com/crspybits/SMLinkPreview/blob/master/Docs/Images/LargeImage-OneLineTitle.png" width="200" title="Large Image One Line Title" />
+    <img src="https://github.com/crspybits/SMLinkPreview/blob/master/Docs/Images/LargeImage-TwoLineTitle.png" width="200" title="Large Image Two Line Title" /> 
     <img src="Docs/Images/OnlyURL.png" width="200" title="Only URL" />
-    <img src="Docs/Images/Icon.png" width="200" title="Icon and URL" />
-    <img src="Docs/Images/Icon-TwoLineTitle.png" width="200"title="Icon Two Line Title" />
+    <img src="https://github.com/crspybits/SMLinkPreview/blob/master/Docs/Images/OnlyURL.png" width="200" title="Icon and URL" />
+    <img src="https://github.com/crspybits/SMLinkPreview/blob/master/Docs/Images/Icon-TwoLineTitle.png" width="200"title="Icon Two Line Title" />
 </p>
 
 
