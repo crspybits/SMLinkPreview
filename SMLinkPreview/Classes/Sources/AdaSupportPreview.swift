@@ -30,6 +30,7 @@ public class AdaSupportPreview: LinkSource {
         }
         
         let request = URLRequest(url: routeURL)
+        // print("routeURL: \(routeURL)")
         let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
                 completion(nil)

@@ -1,4 +1,4 @@
-# SMLinkPreview
+# URL Link Preview
 
 [![Version](https://img.shields.io/cocoapods/v/SMLinkPreview.svg?style=flat)](http://cocoapods.org/pods/SMLinkPreview)
 [![License](https://img.shields.io/cocoapods/l/SMLinkPreview.svg?style=flat)](http://cocoapods.org/pods/SMLinkPreview)

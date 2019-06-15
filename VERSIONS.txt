@@ -1,4 +1,7 @@
 SMLinkPreview
 
+Version 0.1.1 (6/15/19)
+	* Update docs for Cocoapods
+	
 Version 0.1.0 (5/13/19)
 	* Initial release.

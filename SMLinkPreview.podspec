@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SMLinkPreview'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'Fetching link preview data and presentation view for iOS'
 
 # This description is used to generate tags and improve search results.

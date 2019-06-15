@@ -17,7 +17,7 @@ class Tests: XCTestCase {
         let exp = expectation(description: "getLinkData")
         
         previewService.getLinkData(url: url) { linkData in
-            XCTAssert(linkData != nil)
+            XCTAssert(linkData != nil, "\(url)")
             print("\(String(describing: linkData))")
             exp.fulfill()
         }
