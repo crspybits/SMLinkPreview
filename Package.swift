@@ -19,7 +19,7 @@ let package = Package(
             name: "SMLinkPreview",
             dependencies: [],
             resources: [
-                .copy("LinkPreview.xib")
+                .process("LinkPreview.xib")
             ]
         )
         // Currently the tests are in the Cocoapods example. Would be good to move them here or make them available here.

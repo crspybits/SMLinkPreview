@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SMLinkPreview",
+        "repositoryURL": "https://github.com/crspybits/SMLinkPreview",
+        "state": {
+          "branch": "master",
+          "revision": "96713ace92f391f04a5783c78b1abe7cf10cd1f1",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

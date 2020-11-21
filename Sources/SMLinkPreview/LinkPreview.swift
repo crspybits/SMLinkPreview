@@ -8,6 +8,7 @@
 import UIKit
 
 public class LinkPreview: UIView {
+    @IBOutlet weak var topLevelView: UIView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var imageHeight: NSLayoutConstraint!
     @IBOutlet public weak var image: UIImageView!
@@ -25,35 +26,35 @@ public class LinkPreview: UIView {
         case icon(UIImage)
     }
     
-    override public func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
-    // I was having problems getting the LinkPreview to load as an IBOutlet-- but this works: https://stackoverflow.com/questions/6906631/iboutlet-isnt-connected-in-awakefromnib
-    override public func awakeAfter(using aDecoder: NSCoder) -> Any? {
-        guard subviews.isEmpty else { return self }
-        return LinkPreview.loadFromNib(anyClass: type(of: self), owner: nil)
+    init() {
+        super.init(frame: CGRect.zero)
+        initSubviews()
     }
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        initSubviews()
     }
     
-    private static func loadFromNib(anyClass: AnyClass, owner: Any?) -> Any? {
-        let bundle = Bundle(for: anyClass)
-        let nibName = String(describing: anyClass)
-        return bundle.loadNibNamed(nibName, owner: owner, options: nil)?.first
+    private func initSubviews() {
+        let nibName = String(describing: type(of: self))
+        if let nib = Bundle.module.loadNibNamed(nibName, owner: self),
+        let nibView = nib.first as? UIView {
+            frame = nibView.bounds
+            nibView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            addSubview(nibView)
+        }
     }
     
     public static func create(with linkData: LinkData, callback:((_ image: LoadedImage?)->())? = nil) -> LinkPreview {
-        let preview = LinkPreview.loadFromNib(anyClass: self, owner: self) as! LinkPreview
+        let preview = LinkPreview()
         preview.setup(with: linkData, callback: callback)
         return preview
     }
 
     /// Call setup after calling this.
     public static func create() -> LinkPreview {
-        return LinkPreview.loadFromNib(anyClass: self, owner: self) as! LinkPreview
+        return LinkPreview()
     }
     
     /// The image is passed back in the form of a callback to allow for asynchronous image loading if needed.

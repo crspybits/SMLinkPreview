@@ -1,19 +1,18 @@
 //
 //  AppDelegate.swift
-//  SMLInkPreview-SPM-Example
+//  SMLinkPreview-SPM-Example
 //
 //  Created by Christopher G Prince on 11/20/20.
 //
 
 import UIKit
+import SMLinkPreview
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
         return true
     }
 

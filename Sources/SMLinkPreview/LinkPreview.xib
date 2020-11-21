@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LinkPreview" customModule="SMLinkPreview">
+            <connections>
+                <outlet property="contentView" destination="0gT-PC-IlR" id="vTx-N4-mp3"/>
+                <outlet property="icon" destination="2lw-Dj-2g4" id="yPM-ZN-Nx0"/>
+                <outlet property="iconContainerWidth" destination="k0g-V8-yhn" id="JvN-jR-eb9"/>
+                <outlet property="image" destination="CT8-x9-nH3" id="5Kf-HT-6gW"/>
+                <outlet property="imageHeight" destination="rsO-CH-fff" id="AaQ-br-oug"/>
+                <outlet property="textAndIconContainer" destination="sJ4-2z-y8P" id="8OH-RH-cU4"/>
+                <outlet property="title" destination="m6P-ys-HqN" id="t3n-0O-IGh"/>
+                <outlet property="topLevelView" destination="iN0-l3-epB" id="DTq-QF-qcj"/>
+                <outlet property="url" destination="38S-Wk-hqv" id="xWa-Tr-vvc"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LinkPreview" customModule="SMLinkPreview" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="262" height="265"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -71,10 +80,10 @@
                                         <constraint firstAttribute="width" constant="60" id="k0g-V8-yhn"/>
                                     </constraints>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uml-W6-cms">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uml-W6-cms">
                                     <rect key="frame" x="0.0" y="0.0" width="262" height="62"/>
                                     <connections>
-                                        <action selector="textAndIconAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="ruA-WS-9XM"/>
+                                        <action selector="textAndIconAction:" destination="-1" eventType="touchUpInside" id="LMN-dM-BRP"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -105,23 +114,13 @@
                     </constraints>
                 </view>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="0gT-PC-IlR" secondAttribute="bottom" id="VZg-fK-Qcv"/>
                 <constraint firstItem="0gT-PC-IlR" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="iHb-2o-9R9"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0gT-PC-IlR" secondAttribute="trailing" id="ofC-2n-oWf"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <connections>
-                <outlet property="contentView" destination="0gT-PC-IlR" id="6S0-yK-exb"/>
-                <outlet property="icon" destination="2lw-Dj-2g4" id="bmc-nN-eNS"/>
-                <outlet property="iconContainerWidth" destination="k0g-V8-yhn" id="dw4-Ix-nRz"/>
-                <outlet property="image" destination="CT8-x9-nH3" id="nIk-Di-o1M"/>
-                <outlet property="imageHeight" destination="rsO-CH-fff" id="Kyd-AN-bY9"/>
-                <outlet property="textAndIconContainer" destination="sJ4-2z-y8P" id="TcJ-Kv-GeF"/>
-                <outlet property="title" destination="m6P-ys-HqN" id="QnS-X4-1SS"/>
-                <outlet property="url" destination="38S-Wk-hqv" id="F6Z-SW-d5X"/>
-            </connections>
             <point key="canvasLocation" x="-94.400000000000006" y="-127.28635682158921"/>
         </view>
     </objects>
