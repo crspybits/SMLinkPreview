@@ -36,10 +36,21 @@ public class LinkPreview: UIView {
         initSubviews()
     }
     
+    // Adapted from https://medium.com/@chris.mash/loading-nibs-in-ios-9a9c4b05985f
     private func initSubviews() {
         let nibName = String(describing: type(of: self))
-        if let nib = Bundle.module.loadNibNamed(nibName, owner: self),
-        let nibView = nib.first as? UIView {
+        let bundle: Bundle
+        
+        // Bundle.module is available when we're using SPM. https://useyourloaf.com/blog/add-resources-to-swift-packages/
+        // https://darjeelingsteve.com/articles/How-to-Use-Module-Resources-in-Objective-C-SPM-Packages.html
+        #if SWIFT_PACKAGE
+            bundle = Bundle.module
+        #else
+            bundle = Bundle(for: Self.self)
+        #endif
+        
+        if let nib = bundle.loadNibNamed(nibName, owner: self),
+            let nibView = nib.first as? UIView {
             frame = nibView.bounds
             nibView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             addSubview(nibView)
