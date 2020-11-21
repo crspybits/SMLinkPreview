@@ -3,7 +3,7 @@ This application makes use of the following third party libraries:
 
 ## SMLinkPreview
 
-Copyright (c) 2019 crspybits <chris@SpasticMuffin.biz>
+Copyright (c) 2019 Spastic Muffin, LLC <chris@SpasticMuffin.biz>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

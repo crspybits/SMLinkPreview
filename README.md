@@ -30,6 +30,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
+### Cocoapods
+
 SMLinkPreview is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
@@ -41,6 +43,14 @@ or
 
 ```ruby
 pod 'SMLinkPreview', :git => 'https://github.com/crspybits/SMLinkPreview.git'
+```
+
+### Swift Package Manager
+
+It is also available through the Swift Package Manager. To install, add the following line to your Package.swift file as a dependency:
+
+```
+.package(url: "https://github.com/crspybits/SMLinkPreview.git", from: "0.2.0")
 ```
 
 ## Author

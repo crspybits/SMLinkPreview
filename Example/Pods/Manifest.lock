@@ -1,5 +1,5 @@
 PODS:
-  - SMLinkPreview (0.1.0)
+  - SMLinkPreview (0.2.0)
 
 DEPENDENCIES:
   - SMLinkPreview (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  SMLinkPreview: 6c80eef3c6fa084b89c6fc7f2fe9a90987086024
+  SMLinkPreview: d4bc710694d892029e4bcb1ee2583b689243fc75
 
 PODFILE CHECKSUM: e193f9254b4587c0949f09d5eb057840a0a4a0ef
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.9.3

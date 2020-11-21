@@ -1,8 +1,8 @@
 {
   "name": "SMLinkPreview",
-  "version": "0.1.0",
-  "summary": "A short description of SMLinkPreview.",
-  "description": "TODO: Add long description of the pod here.",
+  "version": "0.2.0",
+  "summary": "Fetching link preview data and presentation view for iOS",
+  "description": "Plugins for fetching link preview data and resizing link presentation view for iOS.",
   "homepage": "https://github.com/crspybits/SMLinkPreview",
   "license": {
     "type": "MIT",
@@ -13,10 +13,12 @@
   },
   "source": {
     "git": "https://github.com/crspybits/SMLinkPreview.git",
-    "tag": "0.1.0"
+    "tag": "0.2.0"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "10.0"
   },
-  "source_files": "SMLinkPreview/Classes/**/*"
+  "source_files": "Sources/SMLinkPreview/**/*",
+  "swift_versions": "5.0",
+  "swift_version": "5.0"
 }

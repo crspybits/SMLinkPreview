@@ -324,15 +324,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SMLinkPreview_Example/Pods-SMLinkPreview_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SMLinkPreview/SMLinkPreview.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SMLinkPreview.framework",
 			);

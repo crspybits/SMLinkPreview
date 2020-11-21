@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SMLinkPreview'
-  s.version          = '0.1.1'
+  s.version          = '0.2.0'
   s.summary          = 'Fetching link preview data and presentation view for iOS'
 
 # This description is used to generate tags and improve search results.
@@ -30,7 +30,7 @@ Plugins for fetching link preview data and resizing link presentation view for i
 
   s.ios.deployment_target = '10.0'
 
-  s.source_files = 'SMLinkPreview/Classes/**/*'
+  s.source_files = 'Sources/SMLinkPreview/**/*'
   
   # s.resource_bundles = {
   #   'SMLinkPreview' => ['SMLinkPreview/Assets/*.png']
