@@ -32,8 +32,7 @@ public class PreviewManager {
         sources += [source]
     }
     
-    // For testing
-    func reset() {
+    public func reset() {
         sources = []
     }
     

@@ -120,7 +120,6 @@ class Tests: XCTestCase {
             return false
         }
         
-        
         guard let mPreview = MicrolinkPreview(apiKey: nil) else {
             XCTFail()
             return false
