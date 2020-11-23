@@ -18,7 +18,7 @@ class Tests: XCTestCase {
         
         previewService.getLinkData(url: url) { linkData in
             XCTAssert(linkData != nil, "\(url)")
-            print("\(String(describing: linkData))")
+            print("linkData: \(String(describing: linkData))")
             exp.fulfill()
         }
         
@@ -32,6 +32,21 @@ class Tests: XCTestCase {
         }
         
         guard let url = URL(string: "https://www.cprince.com") else {
+            XCTFail()
+            return
+        }
+        
+        runPreview(previewService: preview, url: url)
+    }
+    
+    // This is not expected to fail because the `MicrolinkPreview` doesn't return nil LinkData with a bad URL.
+    func testMicrolinkPreviewWithBadURL() {
+        guard let preview = MicrolinkPreview(apiKey: nil) else {
+            XCTFail()
+            return
+        }
+        
+        guard let url = URL(string: "https://www.cprince") else {
             XCTFail()
             return
         }

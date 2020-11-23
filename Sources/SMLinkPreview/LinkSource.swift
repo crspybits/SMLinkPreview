@@ -48,6 +48,8 @@ public struct APIKey {
 public protocol LinkSource {
     static var requestKeyName: String? {get}
     init?(apiKey: APIKey?)
+    
+    // Note that, even for URL's that are "bad", e.g., that won't resolve in a web browser, preview services won't necessarily return no data, and so the LinkData will not necessarily be nil. Use the `PreviewManager.session.linkDataFilter` to add constraints.
     func getLinkData(url: URL, completion: @escaping (LinkData?)->())
 }
 

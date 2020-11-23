@@ -24,6 +24,29 @@ public class LinkPreview: UIView {
     public enum LoadedImage {
         case large(UIImage)
         case icon(UIImage)
+        
+        public var image: UIImage {
+            switch self {
+            case .large(let image):
+                return image
+            case .icon(let image):
+                return image
+            }
+        }
+        
+        public enum ImageType: String {
+            case icon
+            case large
+        }
+        
+        public var imageType: ImageType {
+            switch self {
+            case .large:
+                return .large
+            case .icon:
+                return .icon
+            }
+        }
     }
     
     init() {
