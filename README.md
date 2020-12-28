@@ -26,7 +26,61 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
+## How to use
+
+0) Set up plugs that will do the fetching. You (only) have to have at least one of these:
+```
+    PreviewManager.session.reset()
+
+    guard let requestKeyName = MicrosoftURLPreview.requestKeyName,
+        let microsoftKey = APIKey.getFromPlist(plistKeyName: "MicrosoftURLPreview", requestKeyName: requestKeyName, plistName: "APIKeys") else {
+        throw URLPreviewGeneratorError.failedToGetPlistValue
+    }
+    
+    guard let msPreview = MicrosoftURLPreview(apiKey: microsoftKey) else {
+        throw URLPreviewGeneratorError.failedToInitializePlugin
+    }
+    
+    guard let adaPreview = AdaSupportPreview(apiKey: nil) else {
+        throw URLPreviewGeneratorError.failedToInitializePlugin
+    }
+    
+    guard let mPreview = MicrolinkPreview(apiKey: nil) else {
+        throw URLPreviewGeneratorError.failedToInitializePlugin
+    }
+
+    PreviewManager.session.add(source: msPreview)
+    PreviewManager.session.add(source: adaPreview)
+    PreviewManager.session.add(source: mPreview)
+```
+
+1) Optionally add some filtering:
+```
+    // I'm going to require that the linkData have at least some content
+    PreviewManager.session.linkDataFilter = { linkData in
+        return linkData.description != nil ||
+            linkData.icon != nil ||
+            linkData.image != nil
+    }
+```
+
+2) Given that you have a URL that you want to generate a preview for:
+```
+    PreviewManager.session.getLinkData(url: url) { linkData in
+        logger.debug("linkData: \(String(describing: linkData))")
+        completion(linkData)
+    }
+```
+
+3) Use this resulting `linkData` to render a preview:
+```
+    let preview = LinkPreview.create(with: linkData) { loadedImage in
+        // This is optional. Only needed if, for example, you need the UIImage for purposes other than showing it on the screen.
+        model.loadedImage = loadedImage
+    }
+    
+    // Add the `preview` to your view hierarchy. 
+```
 
 ## Installation
 
