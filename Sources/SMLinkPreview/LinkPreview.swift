@@ -5,21 +5,29 @@
 //  Created by Christopher G Prince on 4/22/19.
 //
 
+// By default: This resizes its height to what it needs to have to present its `LinkData`. It keeps the width you set.
+// If you don't want this behavior, use the `LinkPreviewSizing` parameter below.
+
 import UIKit
 
 public class LinkPreview: UIView {
     @IBOutlet weak var topLevelView: UIView!
     @IBOutlet weak var contentView: UIView!
+    
     @IBOutlet weak var imageHeight: NSLayoutConstraint!
     @IBOutlet public weak var image: UIImageView!
+    
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var url: UILabel!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var iconContainerWidth: NSLayoutConstraint!
+    
     @IBOutlet weak var textAndIconContainer: UIView!
+    
     public var textAndIconAction:(()->())?
     private var haveImage: Bool = false
     private var doneSetup = false
+    var sizing:LinkPreviewSizing?
     
     public enum LoadedImage {
         case large(UIImage)
@@ -80,9 +88,9 @@ public class LinkPreview: UIView {
         }
     }
     
-    public static func create(with linkData: LinkData, callback:((_ image: LoadedImage?)->())? = nil) -> LinkPreview {
+    public static func create(with linkData: LinkData, sizing:LinkPreviewSizing? = nil, callback:((_ image: LoadedImage?)->())? = nil) -> LinkPreview {
         let preview = LinkPreview()
-        preview.setup(with: linkData, callback: callback)
+        preview.setup(with: linkData, sizing: sizing, callback: callback)
         return preview
     }
 
@@ -93,8 +101,9 @@ public class LinkPreview: UIView {
     
     /// The image is passed back in the form of a callback to allow for asynchronous image loading if needed.
     // Image data are loaded from the linkData icon/image URL's, if non-nil. Those URL's can refer to either local or remote files.
-    public func setup(with linkData: LinkData, callback:((_ image: LoadedImage?)->())? = nil) {
-        title.numberOfLines = Int(PreviewManager.session.config.maxNumberTitleLines)
+    public func setup(with linkData: LinkData, sizing:LinkPreviewSizing? = nil, callback:((_ image: LoadedImage?)->())? = nil) {
+        self.sizing = sizing
+        
         title.text = linkData.title
         url.text = linkData.url.urlWithoutScheme()
 
@@ -105,6 +114,14 @@ public class LinkPreview: UIView {
         
         var result:LoadedImage?
         
+        let heightIsResizable = sizing?.resizingAllowed ?? false
+
+        title.numberOfLines = Int(PreviewManager.session.config.maxNumberTitleLines)
+
+        if let sizingNumberTitleLines = sizing?.titleLabelNumberOfLines {
+            title.numberOfLines = sizingNumberTitleLines
+        }
+
         if let imageURL = linkData.image,
             let data = try? Data(contentsOf: imageURL.attemptForceScheme(forceScheme)) {
             haveImage = true
@@ -113,9 +130,19 @@ public class LinkPreview: UIView {
                 result = .large(image)
             }
             applyCornerRounding(view: contentView)
+            
+            // Not showing the icon-- because we have the large image
             iconContainerWidth.constant = 0
+            
             layoutIfNeeded()
-            frame.size.height = textAndIconContainer.frame.height + image.frame.height
+            
+            if heightIsResizable {
+                frame.size.height = textAndIconContainer.frame.height + image.frame.height
+            }
+            else {
+                // We can't change the height of the `LinkPreview`. Change the imageHeight to the most it can have.
+                imageHeight.constant = max(frame.size.height - textAndIconContainer.frame.height, 0)
+            }
         }
         else {
             haveImage = false
@@ -132,10 +159,13 @@ public class LinkPreview: UIView {
                 }
             }
             else {
+                // No image, no icon. Hide the icon.
                 iconContainerWidth.constant = 0
             }
             
+            // No image.
             imageHeight.constant = 0
+            
             layoutIfNeeded()
             frame.size.height = textAndIconContainer.frame.height
         }

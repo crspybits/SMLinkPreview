@@ -1,5 +1,8 @@
 SMLinkPreview
 
+Version 0.3.0 (12/28/20)
+	* Made resizing capabilities of LinkPreview more general-- see LinkPreviewSizing.
+
 Version 0.2.0 (12/28/20)
 	* Enable Swift Package Manager (as well as Cocoapods)
 

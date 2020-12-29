@@ -28,7 +28,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## How to use
 
-0) Set up plugs that will do the fetching. You (only) have to have at least one of these:
+0) Set up plugin's that will do the fetching. You (only) have to have at least one of these:
 ```
     PreviewManager.session.reset()
 
