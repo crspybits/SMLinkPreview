@@ -121,14 +121,16 @@ public class LinkPreview: UIView {
         if let sizingNumberTitleLines = sizing?.titleLabelNumberOfLines {
             title.numberOfLines = sizingNumberTitleLines
         }
-
+        
         if let imageURL = linkData.image,
             let data = try? Data(contentsOf: imageURL.attemptForceScheme(forceScheme)) {
             haveImage = true
             image.image = UIImage(data: data)
-            if let image = image.image {
+            
+            if let image = getImage(image: image.image) {
                 result = .large(image)
             }
+            
             applyCornerRounding(view: contentView)
             
             // Not showing the icon-- because we have the large image
@@ -153,8 +155,9 @@ public class LinkPreview: UIView {
             if let iconURL = linkData.icon {
                 if let data = try? Data(contentsOf: iconURL.attemptForceScheme(forceScheme)) {
                     icon.image = UIImage(data: data)
-                    if let icon = icon.image {
-                        result = .icon(icon)
+
+                    if let image = getImage(image: image.image) {
+                        result = .icon(image)
                     }
                 }
             }
@@ -171,6 +174,19 @@ public class LinkPreview: UIView {
         }
         
         callback?(result)
+    }
+    
+    func getImage(image: UIImage?) -> UIImage? {
+        if let minAspectRatio = PreviewManager.session.config.minimumImageAspectRatio {
+            if let image = image,
+                image.size.aspectRatioOK(minimumAspectRatio: minAspectRatio) {
+                return image
+            }
+            else {
+                return nil
+            }
+        }
+        return image
     }
 
     override public func layoutSubviews() {
@@ -191,5 +207,17 @@ public class LinkPreview: UIView {
     
     @IBAction func textAndIconAction(_ sender: Any) {
         textAndIconAction?()
+    }
+}
+
+extension CGSize {
+    func aspectRatioOK(minimumAspectRatio: CGFloat = 0.05) -> Bool {
+        if width == 0 || height == 0 {
+            return false
+        }
+        
+        let maxDim = max(width, height)
+        let minDim = min(width, height)
+        return (minDim / maxDim) >= minimumAspectRatio
     }
 }
